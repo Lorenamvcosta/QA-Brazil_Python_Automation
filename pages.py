@@ -440,6 +440,13 @@ class UrbanRoutesPage:
             button
         )
 
+    def get_payment_method(self):
+        return WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(
+                self.payment_method
+            )
+        ).text
+
     # ==========================
     # COMENTÁRIO PARA O MOTORISTA
     # ==========================
@@ -454,6 +461,13 @@ class UrbanRoutesPage:
 
         comment.clear()
         comment.send_keys(message)
+
+    def get_driver_comment(self):
+        return WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(
+                self.add_comment
+            )
+        ).get_attribute("value")
 
     # ==========================
     # COBERTOR E LENÇÓIS
